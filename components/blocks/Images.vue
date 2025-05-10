@@ -6,20 +6,17 @@
           v-if="block" 
           v-for="image in block" 
           :key="image.id"
+          class="space-y-4"
           >
-          <NuxtLink
-            :to="`/images/${image.id}`" 
-            class="space-y-4">
-            <h2 class="text-xl">
-              {{ image.title }}
-            </h2>
-            <img 
-              :src="image.image"
-              alt="" />
-            <div 
-              v-html="image.description.content">
-            </div>
-          </NuxtLink>
+          <h2 class="text-xl">
+            {{ image.title }}
+          </h2>
+          <img 
+            :src="image.image"
+            alt="" />
+          <div 
+            v-html="image.description.content">
+          </div>
         </div>
       </div>
     </div>
