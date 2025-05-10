@@ -2,10 +2,11 @@
   <div class="bg-white relative">
     <div class="container mx-auto pb-12 lg:pb-20">
       <div class="lg:w-8/12 mx-auto grid md:grid-cols-2 gap-6 text-gray-800 px-4">
-        <div 
-          v-if="block" 
-          v-for="image in block" 
-          :key="image.id"
+        <NuxtLink 
+        v-if="block" 
+        v-for="image in block" 
+        :to="image.id"
+        :key="image.id"
           class="space-y-4"
           >
           <h2
@@ -22,7 +23,7 @@
             v-if="image.description" 
             v-html="image.description.content">
           </div>
-        </div>
+        </NuxtLink>
       </div>
     </div>
   </div> 
