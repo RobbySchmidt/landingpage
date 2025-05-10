@@ -8,13 +8,18 @@
           :key="image.id"
           class="space-y-4"
           >
-          <h2 class="text-xl">
+          <h2
+            v-if="image.title" 
+            class="text-xl font-bold"
+            >
             {{ image.title }}
           </h2>
-          <img 
+          <img
+            v-if="image.image" 
             :src="image.image"
             alt="" />
-          <div 
+          <div
+            v-if="image.description" 
             v-html="image.description.content">
           </div>
         </div>
