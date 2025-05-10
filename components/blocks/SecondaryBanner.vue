@@ -1,9 +1,9 @@
 <template>
   <div 
     class="bg-transparent relative"
-    :class="block.text && block.button ? 'py-24' : 'py-32'">
+    :class="block.text && block.button ? 'py-18 md:py-24' : 'py-24 md:py-32'">
     <div class="container">
-      <div class="lg:w-8/12 mx-auto space-y-12 p-4">
+      <div class="lg:w-8/12 mx-auto space-y-12 px-4">
         <div 
           class="text-white/80 text-4xl lg:text-5xl" 
           v-if="block.text.content"

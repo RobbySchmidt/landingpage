@@ -1,7 +1,7 @@
 <template> 
   <div class="bg-white relative">
-    <div class="container mx-auto py-12">
-      <div class="lg:w-8/12 mx-auto grid md:grid-cols-2 gap-6 p-4 text-gray-800">
+    <div class="container mx-auto pb-12 lg:pb-20">
+      <div class="lg:w-8/12 mx-auto grid md:grid-cols-2 gap-6 px-4 text-gray-800">
         <div>
           <img
             v-if="block.image"

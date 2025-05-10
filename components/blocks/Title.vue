@@ -1,7 +1,7 @@
 <template>  
   <div class="bg-white relative">
-    <div class="container mx-auto py-12">
-      <div class="lg:w-8/12 mx-auto space-y-12 p-4">
+    <div class="container mx-auto py-12 lg:py-20">
+      <div class="lg:w-8/12 mx-auto space-y-12 px-4">
         <h2 
           class="text-4xl lg:text-5xl font-bold underline text-gray-800"
           v-if="block.title">
