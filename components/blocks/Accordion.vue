@@ -1,0 +1,40 @@
+<template> 
+  <div class="bg-white relative">
+    <div class="container mx-auto py-12">
+      <div class="lg:w-6/12 mx-auto space-y-12 text-gray-800 p-4">
+        <h2 
+          class="text-3xl lg:text-4xl font-bold underline text-gray-800"
+          v-if="block.title">
+          {{ block.title }}
+        </h2>
+        <Accordion type="single" class="w-full space-y-1" collapsible >
+          <AccordionItem v-for="item in block.items" :value="item.title">
+            <AccordionTrigger>{{ item.title }}</AccordionTrigger>
+            <AccordionContent>
+              <div v-html="item.content"></div>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+    </div>
+  </div> 
+</template>
+
+<script setup>
+  const supabase = useSupabaseClient()
+  const { data: block, pending, error } = await useAsyncData(
+    'block_accordion',
+    async () => {
+      const { data, error } = await supabase
+        .from('block_accordion')
+        .select('*');
+
+      if (error) throw error;
+      return data;
+    },
+    {
+      transform: (data) => data[0]
+    }
+  );
+</script>
+ 
