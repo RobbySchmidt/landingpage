@@ -19,6 +19,7 @@
 
   const supabase = useSupabaseClient();
   const blocks = ref([]);
+  const { path } = useRoute()
 
   const componentMap = {
     BlocksHeroBanner,
@@ -32,7 +33,8 @@
   const fetchBlocks = async () => {
     const { data: pageComponents, error } = await supabase
       .from('page_components')
-      .select('*');
+      .select('*')
+      .eq('page_slug', path)
 
     blocks.value = pageComponents
       .map((component) => {
