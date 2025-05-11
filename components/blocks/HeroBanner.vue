@@ -23,12 +23,15 @@
 </template>
 
 <script setup>
+  const props = defineProps({
+    block: String
+  })
   const supabase = useSupabaseClient()
   const { data: block, pending, error } = await useAsyncData(
-    'block_heroBanner',
+    props.block,
     async () => {
       const { data, error } = await supabase
-        .from('block_heroBanner')
+        .from(props.block)
         .select('*');
 
       if (error) throw error;

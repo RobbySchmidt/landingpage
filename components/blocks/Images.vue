@@ -30,12 +30,15 @@
 </template>
 
 <script setup>
+  const props = defineProps({
+    block: String
+  })
   const supabase = useSupabaseClient()
   const { data: block, pending, error } = await useAsyncData(
-    'block_images',
+    props.block,
     async () => {
       const { data, error } = await supabase
-        .from('block_images')
+        .from(props.block)
         .select('*');
 
       if (error) throw error;
@@ -46,4 +49,3 @@
     }
   );
 </script>
- 
