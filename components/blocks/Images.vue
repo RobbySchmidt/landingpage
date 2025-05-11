@@ -5,7 +5,7 @@
         <NuxtLink 
         v-if="block" 
         v-for="image in block" 
-        :to="image.id"
+        :to="'/images/' + image.id"
         :key="image.id"
           class="space-y-4"
           >
