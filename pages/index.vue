@@ -33,10 +33,12 @@
   const fetchBlocks = async () => {
     const { data: pageComponents, error } = await supabase
       .from('page_components')
-      .select('*')
-      .eq('page_slug', path)
+      .select('*, page(*)')
+      .eq('page', path)
 
-    blocks.value = pageComponents
+      console.log(pageComponents)
+
+      blocks.value = pageComponents
       .map((component) => {
         
         return {
