@@ -36,8 +36,6 @@
       .select('*, page(*)')
       .eq('page', path)
 
-      console.log(pageComponents)
-
       blocks.value = pageComponents
       .map((component) => {
         
