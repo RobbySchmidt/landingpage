@@ -4,9 +4,12 @@
       <nav class="md:flex md:justify-between lg:w-8/12 mx-auto p-4">
         <div class="flex justify-between items-center">
           <NuxtLink 
-            :to="'/'" 
+            :to="pages[0].slug" 
             class="cursor-pointer">
-            <img class="w-13 block" src="/logo.png" alt="">
+            <img 
+              class="w-13 block" 
+              src="/logo.png" 
+              alt="">
           </NuxtLink>
           <span 
             @click="store.openMenu = !store.openMenu" 
@@ -20,7 +23,7 @@
           class="bg-white h-screen md:h-full border-y border-gray-800 md:border-none duration-150 ease-[cubic-bezier(.51,1.03,.89,.94)] overflow-hidden md:gap-4 absolute top-[63px] right-0 md:static md:flex md:w-auto">
           <li
             v-if="pages" 
-            v-for="data in pages">
+            v-for="data in pages.slice(1)">
             <NuxtLink 
               class="text-gray-800 text-xl font-medium border-b border-gray-800 md:border-none inline-block p-4 md:py-0 w-full" 
               :href="data.slug">
