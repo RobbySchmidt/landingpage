@@ -6,7 +6,7 @@
           <NuxtLink 
             :to="'/'" 
             class="cursor-pointer">
-            <Codesandbox/>
+            <img class="w-13 block" src="/logo.png" alt="">
           </NuxtLink>
           <span 
             @click="store.openMenu = !store.openMenu" 
@@ -17,11 +17,12 @@
         </div>
         <ul 
           :class="store.openMenu ? 'w-full' : 'w-0'" 
-          class="bg-white h-screen md:h-full border-y border-black md:border-none duration-150 ease-[cubic-bezier(.51,1.03,.89,.94)] overflow-hidden grid content-start md:gap-4 md:pt-5 md:pb-4 absolute right-0 md:static md:flex md:w-auto">
-            <li 
-              v-for="data in pages">
-              <NuxtLink 
-              class="px-4 text-xl border-b border-black md:border-none inline-block py-4 md:py-0 w-full" 
+          class="bg-white h-screen md:h-full border-y border-gray-800 md:border-none duration-150 ease-[cubic-bezier(.51,1.03,.89,.94)] overflow-hidden grid content-start md:gap-4 md:pt-5 md:pb-4 absolute right-0 md:static md:flex md:w-auto">
+          <li
+            v-if="pages" 
+            v-for="data in pages">
+            <NuxtLink 
+              class="px-4 text-gray-800 text-xl font-medium border-b border-gray-800 md:border-none inline-block py-4 md:py-0 w-full" 
               :href="data.slug">
               {{ data.title }}
             </NuxtLink>
@@ -34,7 +35,7 @@
 
 <script setup>
   import { useStore } from '/store/store';
-  import { X, AlignJustify, Codesandbox } from 'lucide-vue-next'
+  import { X, AlignJustify } from 'lucide-vue-next'
 
   const supabase = useSupabaseClient();
   const store = useStore()
