@@ -2,50 +2,28 @@
   <div class="relative z-10">
     <component
       v-for="(block, index) in blocks"
-      :is="block.component"
-      :block="block.component_title"
+      :is="map[block.component]"
+      :block="block.component"
       :key="index"
     />
   </div>
 </template>
 
 <script setup>
-  import BlocksHeroBanner from '@/components/blocks/HeroBanner.vue';
-  import BlocksTitle from '@/components/blocks/Title.vue';
-  import BlocksImages from '@/components/blocks/Images.vue';
-  import BlocksSecondaryBanner from '@/components/blocks/SecondaryBanner.vue';
-  import BlocksAccordion from '@/components/blocks/Accordion.vue';
-  import BlocksImageText from '@/components/blocks/ImageText.vue';
-
   const supabase = useSupabaseClient();
-  const blocks = ref([]);
-  const { params } = useRoute()
+  const { params } = useRoute();
 
-  const componentMap = {
-    BlocksHeroBanner,
-    BlocksTitle,
-    BlocksImages,
-    BlocksSecondaryBanner,
-    BlocksAccordion,
-    BlocksImageText,
+  const map = {
+    block_heroBanner: resolveComponent('LazyBlocksHeroBanner'),
+    block_title: resolveComponent('LazyBlocksTitle'),
+    block_images: resolveComponent('LazyBlocksImages'),
+    block_secondaryBanner: resolveComponent('LazyBlocksSecondaryBanner'),
+    block_accordion: resolveComponent('LazyBlocksAccordion'),
+    block_imageText: resolveComponent('LazyBlocksImageText'),
   };
 
-  const fetchBlocks = async () => {
-    const { data: pageComponents, error } = await supabase
-      .from('page_components')
-      .select('*, page')
-      .eq('page', params.slug)
-
-      blocks.value = pageComponents
-      .map((component) => {
-        
-        return {
-          component: componentMap[component.component],
-          component_title: component.component_title,
-        };
-      })
-      
-  };
-
-  onMounted(fetchBlocks);
+  const { data: blocks, error } = await supabase
+    .from('page_components')
+    .select('*, page(*)')
+    .eq('page', params.slug);
 </script>
