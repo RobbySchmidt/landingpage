@@ -1,7 +1,7 @@
 <template> 
   <div class="bg-white relative">
     <div class="container mx-auto py-12 lg:py-20">
-      <div class="max-w-4xl mx-auto text-gray-800 px-4 space-y-4">
+      <div class="lg:w-8/12 mx-auto text-gray-800 px-4 space-y-4">
         <Button 
           @click="$router.push('/')" 
           variant="secondary"
