@@ -1,8 +1,16 @@
 <template>
   <div>
+    <WebsiteNavigation />
     <div>
-      
-      <slot />
+      <slot />     
     </div>
   </div>
 </template>
+
+<script setup>
+ 
+</script>
+
+<style scoped>
+    
+</style>

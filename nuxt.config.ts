@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
 
-  modules: ['shadcn-nuxt', '@nuxtjs/supabase'],
+  modules: ['shadcn-nuxt', '@nuxtjs/supabase', '@pinia/nuxt'],
   
   app: {
     pageTransition: { name: 'page', mode: 'out-in' }
