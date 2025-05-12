@@ -12,7 +12,7 @@
         </Button>
         <div 
           v-if="block" 
-          class="space-y-4 shadow rounded-md overflow-hidden">
+          class="space-y-4 shadow-md rounded-md overflow-hidden">
           <img
           v-if="image.image" 
           :src="image.image"
