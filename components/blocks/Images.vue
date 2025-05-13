@@ -21,8 +21,10 @@
             alt="" />
           <div
             v-if="image.description" 
-            v-html="image.description.content">
+            v-html="image.description.content"
+            class="line-clamp-3">
           </div>
+          <span class="font-semibold">read more</span>
         </NuxtLink>
       </div>
     </div>
