@@ -26,7 +26,7 @@
             v-for="data in pages.slice(1)">
             <NuxtLink 
               class="text-gray-800 text-xl font-medium border-b border-gray-800 md:border-none inline-block p-4 md:py-0 w-full" 
-              :to="data.slug">
+              :to="'/' + data.slug">
               {{ data.title }}
             </NuxtLink>
           </li>
